@@ -1,0 +1,1699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Noctis Residences 8 & 9 – OE&S Planner</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <style>
+    :root {
+      --bg-main: #f3f4f6;
+      --bg-card: #ffffff;
+      --bg-card-soft: #f9fafb;
+      --accent: #10a37f;
+      --accent-soft: rgba(16, 163, 127, 0.08);
+      --accent-strong: #047857;
+      --text-main: #111827;
+      --text-muted: #6b7280;
+      --border-subtle: #e5e7eb;
+      --danger: #f97373;
+      --radius-lg: 18px;
+      --shadow-soft: 0 18px 40px rgba(15, 23, 42, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+      background: var(--bg-main);
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .shell {
+      width: 100%;
+      max-width: 1300px;
+      background: var(--bg-card);
+      border-radius: 24px;
+      padding: 22px 24px 26px;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid var(--border-subtle);
+    }
+
+    header {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 24px;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 18px;
+    }
+
+    .title-block h1 {
+      font-size: 1.6rem;
+      letter-spacing: 0.04em;
+      margin: 0 0 6px;
+    }
+
+    .title-block p {
+      margin: 0;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .tagline {
+      font-size: 0.8rem;
+      color: var(--accent-strong);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+    }
+
+    .context-card {
+  background: #ffffff;
+  border-radius: var(--radius-lg);
+  padding: 14px 16px 16px;
+  border: 1px solid var(--border-subtle);
+  max-width: 420px;
+  font-size: 0.86rem;
+  color: var(--text-muted);
+  box-shadow: 0 14px 30px rgba(15, 23, 42, 0.08);
+}
+
+.context-card strong {
+  color: var(--accent-strong);
+}
+
+.context-header {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 6px;
+}
+
+.context-badge {
+  align-self: flex-start;
+  padding: 0.1rem 0.55rem;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent-strong);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.context-title {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--text-main);
+}
+
+.context-goal {
+  margin: 0 0 0.6rem;
+  color: var(--text-muted);
+}
+
+.context-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 0.65rem;
+}
+
+.context-list li {
+  position: relative;
+  padding-left: 1.1rem;
+  margin-bottom: 0.35rem;
+  color: #4b5563;
+}
+
+.context-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55rem;
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--accent-strong);
+}
+
+.context-note {
+  margin: 0;
+  padding-top: 0.5rem;
+  border-top: 1px dashed rgba(15, 23, 42, 0.1);
+  font-size: 0.8rem;
+  color: #6b7280;
+}
+
+
+
+/* Tabs - estilo pill moderno */
+.tabs {
+  margin-top: 14px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--border-subtle);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tab-button {
+  border: 1px solid rgba(148, 163, 184, 0.4);
+  background: #f7f7f8;
+  color: var(--text-muted);
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  position: relative;
+  transition:
+    background 0.18s ease,
+    color 0.18s ease,
+    box-shadow 0.18s ease,
+    border-color 0.18s ease,
+    transform 0.1s ease;
+}
+
+.tab-button span.dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: rgba(148, 163, 184, 0.9);
+  flex-shrink: 0;
+}
+
+.tab-button:hover:not(.active) {
+  background: #ffffff;
+  color: #111827;
+  border-color: rgba(148, 163, 184, 0.8);
+  box-shadow: 0 4px 10px rgba(15, 23, 42, 0.06);
+  transform: translateY(-1px);
+}
+
+.tab-button.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #ecfdf5;
+  box-shadow: 0 8px 20px rgba(16, 163, 127, 0.35);
+}
+
+.tab-button.active span.dot {
+  background: #ecfdf5;
+}
+
+
+    main {
+      margin-top: 16px;
+    }
+
+    .section {
+      display: none;
+      animation: fadeIn 0.2s ease-out;
+    }
+
+    .section.active {
+      display: block;
+    }
+
+    .section-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+
+    .section-header h2 {
+      font-size: 1rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin: 0;
+    }
+
+    .section-header p {
+      margin: 0;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .table-wrapper {
+      background: var(--bg-card-soft);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-subtle);
+      padding: 10px 10px 12px;
+      overflow: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.86rem;
+      min-width: 650px;
+    }
+
+    th,
+    td {
+      padding: 7px 8px;
+      border-bottom: 1px solid #e5e7eb;
+      text-align: left;
+    }
+
+    th {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-muted);
+      background: #f9fafb;
+      position: sticky;
+      top: 0;
+      z-index: 1;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    tr:nth-child(even) td {
+      background-color: #f9fafb;
+    }
+
+    td[contenteditable="true"] {
+      outline: none;
+      background-color: #ffffff;
+    }
+
+    td[contenteditable="true"]:focus {
+      background: #ecfdf5;
+      box-shadow: 0 0 0 1px var(--accent);
+    }
+
+    .checkbox-cell {
+      text-align: center;
+      width: 80px;
+    }
+
+    .checkbox-cell input[type="checkbox"] {
+      width: 15px;
+      height: 15px;
+      cursor: pointer;
+      accent-color: var(--accent);
+    }
+
+    .controls {
+      display: flex;
+      justify-content: flex-end;
+      gap: 8px;
+      margin-top: 8px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      border-radius: 999px;
+      border: 1px solid var(--border-subtle);
+      background: #ffffff;
+      padding: 6px 13px;
+      font-size: 0.78rem;
+      color: #111827;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.16s ease-out;
+    }
+
+    .btn span.icon {
+      font-size: 0.95rem;
+    }
+
+    .btn.primary {
+      border-color: var(--accent);
+      background: linear-gradient(
+        135deg,
+        var(--accent) 0,
+        #0f766e 40%,
+        #0b4f4b 100%
+      );
+      color: #ecfdf5;
+      font-weight: 600;
+    }
+
+    .btn.primary:hover {
+      filter: brightness(1.05);
+    }
+
+    .btn.secondary:hover {
+      background: #e5e7eb;
+    }
+
+    .helper-text {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    footer {
+      margin-top: 14px;
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 6px;
+      border-top: 1px solid var(--border-subtle);
+      padding-top: 8px;
+    }
+
+    footer strong {
+      color: var(--accent-strong);
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(4px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 10px;
+      }
+
+      .shell {
+        padding: 16px 12px 18px;
+        border-radius: 18px;
+      }
+
+      header {
+        gap: 10px;
+      }
+
+      .title-block h1 {
+        font-size: 1.25rem;
+      }
+
+      table {
+        font-size: 0.8rem;
+        min-width: 560px;
+      }
+          .save-status {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 6px;
+      margin-bottom: 8px;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .save-status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: #9ca3af;
+      flex-shrink: 0;
+    }
+
+    .save-status.saving .save-status-dot {
+      background: #f59e0b; /* ámbar - guardando */
+    }
+
+    .save-status.saved .save-status-dot {
+      background: #10b981; /* verde - todo guardado */
+    }
+
+    .save-status.error .save-status-dot {
+      background: #ef4444; /* rojo - error */
+    }
+
+    .save-status.unsaved .save-status-dot {
+      background: #f97316; /* naranja suave - cambios sin guardar */
+    }
+
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header>
+      <div class="title-block">
+        <p class="tagline">Noctis Residences · Rooms 8 &amp; 9</p>
+        <h1>Operating Equipment &amp; Supplies Planner</h1>
+        <p>
+          Working document for Residences 8 &amp; 9 setup in March.
+          Capture ideas, owners, and final decisions for each OE&amp;S category.
+        </p>
+      </div>
+<div class="context-card">
+  <div class="context-header">
+    <span class="context-badge">Meeting context</span>
+    <h3 class="context-title">How to use this planner today</h3>
+  </div>
+
+  <p class="context-goal">
+    Turn the existing OE&amp;S spreadsheet into a clear framework we can discuss live.
+  </p>
+
+  <ul class="context-list">
+    <li>List every OE&amp;S item needed for Residences 8 &amp; 9.</li>
+    <li>
+      Assign <strong>Who</strong> is leading each line.
+    </li>
+    <li>
+      Capture <strong>Notes</strong> such as suppliers or specifications.
+    </li>
+    <li>
+      Add <strong>Ideas</strong> for alternatives or upgrades.
+    </li>
+    <li>
+      Tick <strong>Finalised</strong> when the decision is locked.
+    </li>
+  </ul>
+
+  <p class="context-note">
+    This is a <strong>growing document</strong>. Do not aim for 100% completion today.
+  </p>
+</div>
+
+    </header>
+      <div class="save-status" id="saveStatus">
+      <span class="save-status-dot"></span>
+      <span class="save-status-text">Loading...</span>
+    </div>
+
+    <!-- Tabs -->
+    <nav class="tabs">
+      <button class="tab-button active" data-target="design-objects">
+        <span class="dot"></span> Design Objects
+      </button>
+      <button class="tab-button" data-target="storage">
+        <span class="dot"></span> Storage &amp; Organization
+      </button>
+      <button class="tab-button" data-target="appliance">
+        <span class="dot"></span> Appliance &amp; Electronics
+      </button>
+      <button class="tab-button" data-target="fb-items">
+        <span class="dot"></span> F&amp;B Items
+      </button>
+      <button class="tab-button" data-target="linen">
+        <span class="dot"></span> Linen
+      </button>
+      <button class="tab-button" data-target="bathroom">
+        <span class="dot"></span> Bathroom Amenities
+      </button>
+      <button class="tab-button" data-target="stationary">
+        <span class="dot"></span> Stationary &amp; Branding
+      </button>
+      <button class="tab-button" data-target="hsk">
+        <span class="dot"></span> HSK &amp; Back of House
+      </button>
+      <button class="tab-button" data-target="misc">
+        <span class="dot"></span> Misc
+      </button>
+      <button class="tab-button" data-target="wellness">
+        <span class="dot"></span> Wellness Centre
+      </button>
+    </nav>
+
+    <main>
+      <!-- DESIGN OBJECTS -->
+      <section id="design-objects" class="section active">
+        <div class="section-header">
+          <div>
+            <h2>Design Objects</h2>
+            <p>
+              Vases, décor pieces, center pieces, diffusers, candles, aromatic
+              oils, room sprays.
+            </p>
+          </div>
+        </div>
+
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Item</th>
+                <th>Who</th>
+                <th>Notes</th>
+                <th>Ideas</th>
+                <th class="checkbox-cell">Finalised?</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td contenteditable="true">Design objects</td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true">Vases, décor pieces, center pieces</td>
+                <td contenteditable="true"></td>
+                <td class="checkbox-cell">
+                  <input type="checkbox" />
+                </td>
+              </tr>
+              <tr>
+                <td contenteditable="true">Room diffusers</td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td class="checkbox-cell">
+                  <input type="checkbox" />
+                </td>
+              </tr>
+              <tr>
+                <td contenteditable="true">Candles</td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td class="checkbox-cell">
+                  <input type="checkbox" />
+                </td>
+              </tr>
+              <tr>
+                <td contenteditable="true">Aromatic oils</td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td class="checkbox-cell">
+                  <input type="checkbox" />
+                </td>
+              </tr>
+              <tr>
+                <td contenteditable="true">Room sprays</td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td class="checkbox-cell">
+                  <input type="checkbox" />
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="controls">
+            <button class="btn primary" data-add-row="design-objects">
+              <span class="icon">＋</span>
+              Add row
+            </button>
+          </div>
+          <div class="helper-text">
+            Tip: you can also paste full columns from Excel directly into this table.
+          </div>
+        </div>
+      </section>
+
+      <!-- STORAGE & ORGANIZATION -->
+      <section id="storage" class="section">
+        <div class="section-header">
+          <div>
+            <h2>Storage, Holders &amp; Organization</h2>
+            <p>
+              Trays, holders, laundry solutions, bins, luggage racks and other
+              organizers.
+            </p>
+          </div>
+        </div>
+
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Item</th>
+                <th>Who</th>
+                <th>Notes</th>
+                <th>Ideas</th>
+                <th class="checkbox-cell">Finalised?</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td contenteditable="true">TV remote holders</td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true">(public areas, villas, spa, bar, restaurants, gym)</td>
+                <td class="checkbox-cell">
+                  <input type="checkbox" />
+                </td>
+              </tr>
+              <tr>
+                <td contenteditable="true">Amenity tray</td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td class="checkbox-cell">
+                  <input type="checkbox" />
+                </td>
+              </tr>
+              <tr>
+                <td contenteditable="true">Laundry bags</td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td class="checkbox-cell">
+                  <input type="checkbox" />
+                </td>
+              </tr>
+              <tr>
+                <td contenteditable="true">Pillow bag for extra pillow</td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td class="checkbox-cell">
+                  <input type="checkbox" />
+                </td>
+              </tr>
+              <tr>
+                <td contenteditable="true">Shoe tray</td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td class="checkbox-cell">
+                  <input type="checkbox" />
+                </td>
+              </tr>
+              <!-- extra blank row to continue filling -->
+              <tr>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td class="checkbox-cell">
+                  <input type="checkbox" />
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="controls">
+            <button class="btn primary" data-add-row="storage">
+              <span class="icon">＋</span>
+              Add row
+            </button>
+          </div>
+          <div class="helper-text">
+            Use notes for comments like “closet for extra pillows/blankets” or shoe-rack ideas.
+          </div>
+        </div>
+      </section>
+
+      <!-- APPLIANCE & ELECTRONICS -->
+      <section id="appliance" class="section">
+        <div class="section-header">
+          <div>
+            <h2>Appliance &amp; Electronics</h2>
+            <p>
+              Kettles, coffee machines, irons, hair devices, safes, Alexa,
+              outdoor heaters and other equipment.
+            </p>
+          </div>
+        </div>
+
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Item</th>
+                <th>Who</th>
+                <th>Notes</th>
+                <th>Ideas</th>
+                <th class="checkbox-cell">Finalised?</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td contenteditable="true">Kettle</td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td class="checkbox-cell">
+                  <input type="checkbox" />
+                </td>
+              </tr>
+              <tr>
+                <td contenteditable="true">Coffee machine</td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td class="checkbox-cell">
+                  <input type="checkbox" />
+                </td>
+              </tr>
+              <tr>
+                <td contenteditable="true">Hair dryer &amp; straightener</td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true">Dyson Airwrap offering both options?</td>
+                <td class="checkbox-cell">
+                  <input type="checkbox" />
+                </td>
+              </tr>
+              <tr>
+                <td contenteditable="true">Alarm clocks / Alexa</td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true">Alexa</td>
+                <td contenteditable="true"></td>
+                <td class="checkbox-cell">
+                  <input type="checkbox" />
+                </td>
+              </tr>
+              <tr>
+                <td contenteditable="true">Outdoor heaters</td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true">For pool area, especially for events</td>
+                <td class="checkbox-cell">
+                  <input type="checkbox" />
+                </td>
+              </tr>
+              <tr>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td class="checkbox-cell">
+                  <input type="checkbox" />
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="controls">
+            <button class="btn primary" data-add-row="appliance">
+              <span class="icon">＋</span>
+              Add row
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- F&B ITEMS -->
+      <section id="fb-items" class="section">
+        <div class="section-header">
+          <div>
+            <h2>Food &amp; Beverage Items</h2>
+            <p>
+              Coffee and tea setup, glassware, plates, cutlery, branded bottles
+              and pool-safe options.
+            </p>
+          </div>
+        </div>
+
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Item</th>
+                <th>Who</th>
+                <th>Notes</th>
+                <th>Ideas</th>
+                <th class="checkbox-cell">Finalised?</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td contenteditable="true">Coffee grounds</td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true">Lucent</td>
+                <td contenteditable="true"></td>
+                <td class="checkbox-cell"><input type="checkbox" /></td>
+              </tr>
+              <tr>
+                <td contenteditable="true">Coffee pods</td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true">Villas</td>
+                <td contenteditable="true"></td>
+                <td class="checkbox-cell"><input type="checkbox" /></td>
+              </tr>
+              <tr>
+                <td contenteditable="true">Coffee mugs &amp; saucers</td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true">Lucent &amp; Villas</td>
+                <td contenteditable="true"></td>
+                <td class="checkbox-cell"><input type="checkbox" /></td>
+              </tr>
+              <tr>
+                <td contenteditable="true">Cutlery</td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true">
+                  Villas &amp; Lucent? (forks, knives, spoons, cheese knives, steak knives)
+                </td>
+                <td contenteditable="true"></td>
+                <td class="checkbox-cell"><input type="checkbox" /></td>
+              </tr>
+              <tr>
+                <td contenteditable="true">Plastic glasses</td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true">For pool and hot tubs</td>
+                <td contenteditable="true"></td>
+                <td class="checkbox-cell"><input type="checkbox" /></td>
+              </tr>
+              <tr>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td class="checkbox-cell"><input type="checkbox" /></td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="controls">
+            <button class="btn primary" data-add-row="fb-items">
+              <span class="icon">＋</span>
+              Add row
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- LINEN -->
+      <section id="linen" class="section">
+        <div class="section-header">
+          <div>
+            <h2>Linen</h2>
+            <p>
+              Towels, bedding, bathrobes, slippers, cots and special items like
+              pillow menu or baby bedding.
+            </p>
+          </div>
+        </div>
+
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Item</th>
+                <th>Who</th>
+                <th>Notes</th>
+                <th>Ideas</th>
+                <th class="checkbox-cell">Finalised?</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td contenteditable="true">Extra-large towels</td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td class="checkbox-cell"><input type="checkbox" /></td>
+              </tr>
+              <tr>
+                <td contenteditable="true">Pool towels</td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true">Spa &amp; Pool?</td>
+                <td contenteditable="true"></td>
+                <td class="checkbox-cell"><input type="checkbox" /></td>
+              </tr>
+              <tr>
+                <td contenteditable="true">Pillows</td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true">Need a pillow menu</td>
+                <td contenteditable="true">
+                  Different options (feather, memory foam, non-feather)
+                </td>
+                <td class="checkbox-cell"><input type="checkbox" /></td>
+              </tr>
+              <tr>
+                <td contenteditable="true">Mattress protector</td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true">Waterproof option</td>
+                <td class="checkbox-cell"><input type="checkbox" /></td>
+              </tr>
+              <tr>
+                <td contenteditable="true">Baby cot</td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td class="checkbox-cell"><input type="checkbox" /></td>
+              </tr>
+              <tr>
+                <td contenteditable="true">Sleeping eye mask</td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true">Can have the Noctis logo on it</td>
+                <td contenteditable="true"></td>
+                <td class="checkbox-cell"><input type="checkbox" /></td>
+              </tr>
+              <tr>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td class="checkbox-cell"><input type="checkbox" /></td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="controls">
+            <button class="btn primary" data-add-row="linen">
+              <span class="icon">＋</span>
+              Add row
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- BATHROOM AMENITIES -->
+      <section id="bathroom" class="section">
+        <div class="section-header">
+          <div>
+            <h2>Bathroom Amenities</h2>
+            <p>
+              Core amenity line (Ecoya or other), on-request kids amenities and
+              one-use options where needed.
+            </p>
+          </div>
+        </div>
+
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Item</th>
+                <th>Who</th>
+                <th>Notes</th>
+                <th>Ideas</th>
+                <th class="checkbox-cell">Finalised?</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td contenteditable="true">Shampoo</td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true">Ecoya</td>
+                <td contenteditable="true"></td>
+                <td class="checkbox-cell"><input type="checkbox" /></td>
+              </tr>
+              <tr>
+                <td contenteditable="true">Conditioner</td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true">Ecoya</td>
+                <td contenteditable="true"></td>
+                <td class="checkbox-cell"><input type="checkbox" /></td>
+              </tr>
+              <tr>
+                <td contenteditable="true">Body wash</td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true">Ecoya</td>
+                <td contenteditable="true"></td>
+                <td class="checkbox-cell"><input type="checkbox" /></td>
+              </tr>
+              <tr>
+                <td contenteditable="true">Kids' shampoo/conditioner/body wash</td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true">
+                  Could be good to have on request for families?
+                </td>
+                <td class="checkbox-cell"><input type="checkbox" /></td>
+              </tr>
+              <tr>
+                <td contenteditable="true">Bath bombs &amp; salts</td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td class="checkbox-cell"><input type="checkbox" /></td>
+              </tr>
+              <tr>
+                <td contenteditable="true">First aid kit</td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td class="checkbox-cell"><input type="checkbox" /></td>
+              </tr>
+              <tr>
+                <td contenteditable="true">Bath mat</td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true">(sticky + towel type)</td>
+                <td contenteditable="true"></td>
+                <td class="checkbox-cell"><input type="checkbox" /></td>
+              </tr>
+              <tr>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td class="checkbox-cell"><input type="checkbox" /></td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="controls">
+            <button class="btn primary" data-add-row="bathroom">
+              <span class="icon">＋</span>
+              Add row
+            </button>
+          </div>
+          <div class="helper-text">
+            Use the Ideas column for notes like “on-demand only” or “one-use option”.
+          </div>
+        </div>
+      </section>
+
+      <!-- STATIONARY & BRANDING -->
+      <section id="stationary" class="section">
+        <div class="section-header">
+          <div>
+            <h2>Stationary &amp; Branding</h2>
+            <p>
+              Branded touchpoints, welcome material, maps and in-room signage.
+            </p>
+          </div>
+        </div>
+
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Item</th>
+                <th>Who</th>
+                <th>Notes</th>
+                <th>Ideas</th>
+                <th class="checkbox-cell">Finalised?</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td contenteditable="true">Branded tote bags / shopping bags</td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true">Could be good as a sustainable initiative</td>
+                <td class="checkbox-cell"><input type="checkbox" /></td>
+              </tr>
+              <tr>
+                <td contenteditable="true">VIP welcome amenities</td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td class="checkbox-cell"><input type="checkbox" /></td>
+              </tr>
+              <tr>
+                <td contenteditable="true">Do not disturb signs</td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td class="checkbox-cell"><input type="checkbox" /></td>
+              </tr>
+              <tr>
+                <td contenteditable="true">Compendium</td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td class="checkbox-cell"><input type="checkbox" /></td>
+              </tr>
+              <tr>
+                <td contenteditable="true">Branded beverage menus</td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true">Lucent</td>
+                <td contenteditable="true"></td>
+                <td class="checkbox-cell"><input type="checkbox" /></td>
+              </tr>
+              <tr>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td class="checkbox-cell"><input type="checkbox" /></td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="controls">
+            <button class="btn primary" data-add-row="stationary">
+              <span class="icon">＋</span>
+              Add row
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- HSK & BACK OF HOUSE -->
+      <section id="hsk" class="section">
+        <div class="section-header">
+          <div>
+            <h2>Housekeeping &amp; Back of House</h2>
+            <p>
+              Trolleys, carts, cleaning products, consumables like toilet paper and tissues.
+            </p>
+          </div>
+        </div>
+
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Item</th>
+                <th>Who</th>
+                <th>Notes</th>
+                <th>Ideas</th>
+                <th class="checkbox-cell">Finalised?</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td contenteditable="true">HSK trolleys</td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td class="checkbox-cell"><input type="checkbox" /></td>
+              </tr>
+              <tr>
+                <td contenteditable="true">Luggage trolley / mini golf carts</td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td class="checkbox-cell"><input type="checkbox" /></td>
+              </tr>
+              <tr>
+                <td contenteditable="true">All cleaning products for HSK</td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td class="checkbox-cell"><input type="checkbox" /></td>
+              </tr>
+              <tr>
+                <td contenteditable="true">Toilet paper</td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td class="checkbox-cell"><input type="checkbox" /></td>
+              </tr>
+              <tr>
+                <td contenteditable="true">Tissues</td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td class="checkbox-cell"><input type="checkbox" /></td>
+              </tr>
+              <tr>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td class="checkbox-cell"><input type="checkbox" /></td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="controls">
+            <button class="btn primary" data-add-row="hsk">
+              <span class="icon">＋</span>
+              Add row
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- MISC -->
+      <section id="misc" class="section">
+        <div class="section-header">
+          <div>
+            <h2>Miscellaneous</h2>
+            <p>
+              Items that support the experience but do not fit in other categories.
+            </p>
+          </div>
+        </div>
+
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Item</th>
+                <th>Who</th>
+                <th>Notes</th>
+                <th>Ideas</th>
+                <th class="checkbox-cell">Finalised?</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td contenteditable="true">Table games</td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td class="checkbox-cell"><input type="checkbox" /></td>
+              </tr>
+              <tr>
+                <td contenteditable="true">Water refill station</td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td class="checkbox-cell"><input type="checkbox" /></td>
+              </tr>
+              <tr>
+                <td contenteditable="true">Books</td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td class="checkbox-cell"><input type="checkbox" /></td>
+              </tr>
+              <tr>
+                <td contenteditable="true">Binoculars</td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true">Aligning with night theme</td>
+                <td contenteditable="true"></td>
+                <td class="checkbox-cell"><input type="checkbox" /></td>
+              </tr>
+              <tr>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td class="checkbox-cell"><input type="checkbox" /></td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="controls">
+            <button class="btn primary" data-add-row="misc">
+              <span class="icon">＋</span>
+              Add row
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- WELLNESS -->
+      <section id="wellness" class="section">
+        <div class="section-header">
+          <div>
+            <h2>Wellness Centre</h2>
+          <p>
+              In-room and spa-related items aligned with wellness concept
+              (to be refined with Christiane).
+            </p>
+          </div>
+        </div>
+
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Item</th>
+                <th>Who</th>
+                <th>Notes</th>
+                <th>Ideas</th>
+                <th class="checkbox-cell">Finalised?</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td contenteditable="true">Body oil</td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td class="checkbox-cell"><input type="checkbox" /></td>
+              </tr>
+              <tr>
+                <td contenteditable="true">Aroma therapy oils</td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td class="checkbox-cell"><input type="checkbox" /></td>
+              </tr>
+              <tr>
+                <td contenteditable="true">Towels</td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td class="checkbox-cell"><input type="checkbox" /></td>
+              </tr>
+              <tr>
+                <td contenteditable="true">Hair dryer</td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td class="checkbox-cell"><input type="checkbox" /></td>
+              </tr>
+              <tr>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true">Christiane working on this at the same time as concept</td>
+                <td contenteditable="true"></td>
+                <td class="checkbox-cell"><input type="checkbox" /></td>
+              </tr>
+              <tr>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td class="checkbox-cell"><input type="checkbox" /></td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="controls">
+            <button class="btn primary" data-add-row="wellness">
+              <span class="icon">＋</span>
+              Add row
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div>
+        <strong>How to use:</strong>
+        type directly into any cell, use “Add row” to keep expanding each list.
+      </div>
+      <div>
+        Working doc for OE&amp;S framework – exported from the spreadsheet logic.
+      </div>
+    </footer>
+  </div>
+  <script>
+  // --- Mapeo de secciones (id HTML -> nombre "humano" para la BD) ---
+  const SECTION_LABELS = {
+    "design-objects": "Design Objects",
+    storage: "Storage & Organization",
+    appliance: "Appliance & Electronics",
+    "fb-items": "Food & Beverage Items",
+    linen: "Linen",
+    bathroom: "Bathroom Amenities",
+    stationary: "Stationary & Branding",
+    hsk: "Housekeeping & Back of House",
+    misc: "Miscellaneous",
+    wellness: "Wellness Centre",
+  };
+
+  // --- Referencias para el indicador de guardado ---
+  let saveStatusEl = null;
+  let saveStatusTextEl = null;
+  let lastSavedAt = null;
+  let saveTimeout = null;
+
+  function initSaveStatus() {
+    saveStatusEl = document.getElementById("saveStatus");
+    saveStatusTextEl = saveStatusEl
+      ? saveStatusEl.querySelector(".save-status-text")
+      : null;
+    if (saveStatusEl && saveStatusTextEl) {
+      setStatusLoading();
+    }
+  }
+
+  function clearStatusClasses() {
+    if (!saveStatusEl) return;
+    saveStatusEl.classList.remove("saving", "saved", "error", "unsaved");
+  }
+
+  function setStatusLoading() {
+    if (!saveStatusEl || !saveStatusTextEl) return;
+    clearStatusClasses();
+    saveStatusTextEl.textContent = "Loading data…";
+  }
+
+  function setStatusUnsaved() {
+    if (!saveStatusEl || !saveStatusTextEl) return;
+    clearStatusClasses();
+    saveStatusEl.classList.add("unsaved");
+    saveStatusTextEl.textContent = "Unsaved changes…";
+  }
+
+  function setStatusSaving() {
+    if (!saveStatusEl || !saveStatusTextEl) return;
+    clearStatusClasses();
+    saveStatusEl.classList.add("saving");
+    saveStatusTextEl.textContent = "Saving…";
+  }
+
+  function formatTime(date) {
+    const d = date instanceof Date ? date : new Date(date);
+    return d.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+  }
+
+  function setStatusSaved(date) {
+    if (!saveStatusEl || !saveStatusTextEl) return;
+    clearStatusClasses();
+    saveStatusEl.classList.add("saved");
+    const t = formatTime(date);
+    saveStatusTextEl.textContent = "All changes saved at " + t;
+  }
+
+  function setStatusError() {
+    if (!saveStatusEl || !saveStatusTextEl) return;
+    clearStatusClasses();
+    saveStatusEl.classList.add("error");
+    saveStatusTextEl.textContent = "Error while saving – check connection";
+  }
+
+  // --- Tabs & add-row logic ---
+  function setupTabs() {
+    document.querySelectorAll(".tab-button").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        const target = this.getAttribute("data-target");
+
+        document
+          .querySelectorAll(".tab-button")
+          .forEach((b) => b.classList.remove("active"));
+        document
+          .querySelectorAll(".section")
+          .forEach((s) => s.classList.remove("active"));
+
+        this.classList.add("active");
+        document.getElementById(target).classList.add("active");
+      });
+    });
+  }
+
+  function addRow(sectionId) {
+    const section = document.getElementById(sectionId);
+    if (!section) return;
+
+    const tbody = section.querySelector("tbody");
+    const rows = tbody.querySelectorAll("tr");
+    if (rows.length === 0) return;
+
+    // Clonamos la última fila como template
+    const templateRow = rows[rows.length - 1];
+    const clone = templateRow.cloneNode(true);
+
+    clone.querySelectorAll("td").forEach(function (td) {
+      if (td.hasAttribute("contenteditable")) {
+        td.textContent = "";
+      }
+      const cb = td.querySelector('input[type="checkbox"]');
+      if (cb) cb.checked = false;
+    });
+
+    tbody.appendChild(clone);
+    queueSave(); // guardamos después de agregar fila
+  }
+
+  function setupAddRowButtons() {
+    document.querySelectorAll("[data-add-row]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        const sectionId = this.getAttribute("data-add-row");
+        addRow(sectionId);
+      });
+    });
+  }
+
+  // --- Recolección de datos desde el DOM (todas las secciones) ---
+
+  function collectData() {
+    const data = {};
+    document.querySelectorAll(".section").forEach((section) => {
+      const id = section.id;
+      const rowsData = [];
+      const rows = section.querySelectorAll("tbody tr");
+
+      rows.forEach((tr) => {
+        const cells = tr.querySelectorAll("td");
+        if (cells.length < 5) return;
+
+        const checkbox = cells[4].querySelector('input[type="checkbox"]');
+
+        const item = cells[0].textContent.trim();
+        const who = cells[1].textContent.trim();
+        const notes = cells[2].textContent.trim();
+        const ideas = cells[3].textContent.trim();
+        const finalised = checkbox ? checkbox.checked : false;
+
+        // Evitamos guardar filas totalmente vacías
+        if (!item && !who && !notes && !ideas && !finalised) return;
+
+        rowsData.push({
+          item,
+          who,
+          notes,
+          ideas,
+          finalised,
+        });
+      });
+
+      data[id] = rowsData;
+    });
+    return data;
+  }
+
+  function applyData(data) {
+    if (!data || typeof data !== "object") return;
+
+    Object.entries(data).forEach(([id, rows]) => {
+      const section = document.getElementById(id);
+      if (!section) return;
+
+      const tbody = section.querySelector("tbody");
+      if (!tbody) return;
+
+      // Usamos la última fila existente como template
+      let existingRows = Array.from(tbody.querySelectorAll("tr"));
+      if (existingRows.length === 0) return;
+      const templateRow = existingRows[existingRows.length - 1].cloneNode(true);
+
+      // Limpiamos el tbody y reconstruimos
+      tbody.innerHTML = "";
+
+      function makeRowFromData(row) {
+        const tr = templateRow.cloneNode(true);
+        const cells = tr.querySelectorAll("td");
+        if (cells.length < 5) return tr;
+
+        cells[0].textContent = row.item || "";
+        cells[1].textContent = row.who || "";
+        cells[2].textContent = row.notes || "";
+        cells[3].textContent = row.ideas || "";
+
+        const cb = cells[4].querySelector('input[type="checkbox"]');
+        if (cb) cb.checked = !!row.finalised;
+
+        return tr;
+      }
+
+      // Rellenamos con lo que viene del servidor
+      rows.forEach((row) => {
+        const tr = makeRowFromData(row);
+        tbody.appendChild(tr);
+      });
+
+      // Añadimos una fila extra en blanco para seguir escribiendo
+      const blankRow = makeRowFromData({
+        item: "",
+        who: "",
+        notes: "",
+        ideas: "",
+        finalised: false,
+      });
+      tbody.appendChild(blankRow);
+    });
+  }
+
+  // --- Cargar datos desde el backend (Prisma) ---
+
+  async function loadFromServer() {
+    try {
+      setStatusLoading();
+      const res = await fetch("/api/oes/sections");
+      if (!res.ok) {
+        console.warn("Failed to load OE&S from server:", res.status);
+        return;
+      }
+      const sections = await res.json();
+
+      // Adaptamos la respuesta a la forma que espera applyData()
+      const data = {};
+      sections.forEach((section) => {
+        data[section.key] = (section.items || []).map((item) => ({
+          item: item.item || "",
+          who: item.who || "",
+          notes: item.notes || "",
+          ideas: item.ideas || "",
+          finalised: !!item.finalised,
+        }));
+      });
+
+      applyData(data);
+      lastSavedAt = new Date();
+      setStatusSaved(lastSavedAt);
+    } catch (e) {
+      console.warn("Could not load OE&S from server", e);
+      setStatusError();
+    }
+  }
+
+  // --- Guardar datos en el backend (todas las secciones) ---
+
+  async function saveAllToServer() {
+    const data = collectData();
+    const entries = Object.entries(data);
+    if (!entries.length) return;
+
+    setStatusSaving();
+
+    try {
+      for (const [key, rows] of entries) {
+        const name = SECTION_LABELS[key] || key;
+
+        const res = await fetch("/api/oes/save-section", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ key, name, rows }),
+        });
+
+        if (!res.ok) {
+          console.warn("Failed to save section", key, res.status);
+          setStatusError();
+          return;
+        }
+      }
+
+      lastSavedAt = new Date();
+      setStatusSaved(lastSavedAt);
+    } catch (e) {
+      console.warn("Error saving OE&S data", e);
+      setStatusError();
+    }
+  }
+
+  // --- Pequeño debounce para no guardar en cada tecla individual ---
+
+  function queueSave() {
+    setStatusUnsaved();
+    if (saveTimeout) clearTimeout(saveTimeout);
+    saveTimeout = setTimeout(() => {
+      saveAllToServer().catch((e) =>
+        console.warn("Failed to save OE&S data", e)
+      );
+    }, 800); // 0.8s después de la última edición
+  }
+
+  // --- Autosave listeners (input + checkboxes) ---
+
+  function setupAutosaveListeners() {
+    // Cada vez que se escribe en una celda editable
+    document.body.addEventListener("input", (e) => {
+      if (e.target.matches('td[contenteditable="true"]')) {
+        queueSave();
+      }
+    });
+
+    // Cada vez que se tilda un checkbox
+    document.body.addEventListener("change", (e) => {
+      if (e.target.matches('input[type="checkbox"]')) {
+        queueSave();
+      }
+    });
+  }
+
+  // --- Init ---
+
+  document.addEventListener("DOMContentLoaded", () => {
+    initSaveStatus();
+    setupTabs();
+    setupAddRowButtons();
+    setupAutosaveListeners();
+    loadFromServer(); // cargar datos desde la BD al abrir
+  });
+  </script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,18 @@
+{
+  "name": "noctis-ops-hub-backend",
+  "version": "1.0.0",
+  "description": "Servidor backend para la plataforma Noctis Ops Hub",
+  "main": "src/index.js",
+  "scripts": {
+    "dev": "node src/index.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "@prisma/client": "^5.2.0"
+    ,"multer": "1.4.5-lts.1"
+  },
+  "devDependencies": {
+    "prisma": "^5.2.0"
+  }
+}

@@ -1,0 +1,79 @@
+// Configuración de la base de datos para Prisma
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+// Modelo base para registrar módulos de la plataforma. A futuro se podrán
+// añadir más tablas y relaciones dependiendo de las necesidades de cada
+// mini‑proyecto.
+model Module {
+  id          Int      @id @default(autoincrement())
+  name        String
+  slug        String   @unique
+  description String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+// Tabla para gestionar las solicitudes de reembolso del Front Office.  Cada
+// registro representa una solicitud realizada por un huésped o generada
+// internamente y almacena tanto los datos de la reserva como los detalles
+// del reembolso.  Incluye relaciones con los adjuntos relacionados.
+// Tabla para gestionar las solicitudes de reembolso del Front Office.
+model RefundRequest {
+  id              Int      @id @default(autoincrement())
+  bookingNumber   String
+  guestName       String
+  email           String?
+  phone           String?
+  amountRequested Decimal?
+  reason          String
+  details         String?
+  status          String   @default("PENDING")
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  attachments RefundAttachment[]
+}
+
+// Tabla que almacena los documentos adjuntos de las solicitudes de
+// reembolso.  Cada adjunto se clasifica por tipo y guarda la ruta
+// relativa donde se almacenó el archivo en el servidor.
+model RefundAttachment {
+  id              Int           @id @default(autoincrement())
+  refundRequest   RefundRequest @relation(fields: [refundRequestId], references: [id], onDelete: Cascade)
+  refundRequestId Int
+  type            String
+  fileName        String
+  filePath        String
+  uploadedAt      DateTime      @default(now())
+}
+
+model OesCategory {
+  id          Int       @id @default(autoincrement())
+  key         String    @unique       // ej. "design-objects", "linen"
+  name        String                 // ej. "Design Objects"
+  description String?                // texto descriptivo opcional
+  order       Int       @default(0)  // para ordenar las tabs
+  items       OesItem[]
+}
+
+model OesItem {
+  id          Int       @id @default(autoincrement())
+  categoryId  Int
+  category    OesCategory @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+
+  item        String
+  who         String?
+  notes       String?
+  ideas       String?
+  finalised   Boolean    @default(false)
+
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+}

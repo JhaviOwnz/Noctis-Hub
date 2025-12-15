@@ -1,0 +1,513 @@
+/*
+  Global styles for Noctis Ops Hub.
+  Clean, light and minimal – inspired by modern app UIs.
+*/
+
+:root {
+  --sidebar-width: 260px;
+  --sidebar-bg: #f7f7f8;
+  --sidebar-border: #e5e7eb;
+  --accent-color: #10a37f;
+  --accent-color-hover: #0e8c6c;
+  --text-main: #111827;
+  --text-muted: #6b7280;
+  --bg-main: #ffffff;
+  --text-color: #111827;
+  --font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+}
+
+/* Reset básico y tipografía */
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-family);
+  color: var(--text-color);
+  background-color: var(--bg-main);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 600;
+  color: var(--text-main);
+  margin: 0;
+}
+
+p {
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* LAYOUT GENERAL */
+
+.app-container {
+  display: flex;
+  min-height: 100vh;
+  background-color: #ffffff;
+}
+
+/* SIDEBAR */
+
+.sidebar {
+  width: var(--sidebar-width);
+  border-right: 1px solid var(--sidebar-border);
+  background-color: var(--sidebar-bg);
+  padding: 16px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-circle {
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  background-color: #111827;
+  color: #f9fafb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.logo-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.logo-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.logo-subtitle {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+/* Navegación lateral */
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  color: #374151;
+  text-decoration: none;
+  font-size: 0.875rem;
+}
+
+.nav-item:hover {
+  background-color: #e5e7eb;
+}
+
+.nav-item-active {
+  background-color: #d1fae5;
+  color: #065f46;
+}
+
+.nav-icon {
+  flex-shrink: 0;
+}
+
+.nav-label {
+  white-space: nowrap;
+}
+
+/* MAIN AREA */
+
+.main-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+}
+
+.topbar {
+  height: 56px;
+  border-bottom: 1px solid var(--sidebar-border);
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.875rem;
+  background-color: #ffffff;
+}
+
+.topbar-title {
+  font-weight: 500;
+  color: var(--text-main);
+}
+
+.topbar-meta {
+  color: var(--text-muted);
+}
+
+.content {
+  flex: 1;
+  padding: 24px 32px 28px;
+  box-sizing: border-box;
+}
+
+/* PÁGINAS GENERALES */
+
+.page-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.page-header h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.page-subtitle {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+
+/* Botón principal (Open Full View, etc.) */
+
+.fullview-button {
+  background-color: var(--accent-color);
+  padding: 8px 14px;
+  color: white;
+  font-size: 0.875rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.fullview-button:hover {
+  background-color: var(--accent-color-hover);
+}
+
+/* Card genérica (Executive Insights, Refunds, etc.) */
+
+.fun-card {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  margin-top: 16px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.fun-image {
+  margin-top: 12px;
+  border-radius: 8px;
+  max-width: 100%;
+}
+
+.final-section {
+  background: #ecfdf5;
+}
+
+/* -------- OE&S PLANNER LIGHT STYLE -------- */
+
+.oes-page {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.oes-card {
+  background: #ffffff;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  padding: 20px 22px;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.05);
+}
+
+.oes-heading {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #111827;
+}
+
+.oes-subtitle {
+  font-size: 0.85rem;
+  color: #6b7280;
+}
+
+/* Summary card */
+
+.oes-summary-card {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.oes-summary-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+.oes-meta {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.oes-meta-label {
+  display: block;
+  font-size: 0.75rem;
+  color: #9ca3af;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.oes-meta-value {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #111827;
+}
+
+.oes-summary-body {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.oes-summary-column {
+  flex: 1 1 260px;
+  font-size: 0.85rem;
+  color: #374151;
+}
+
+.oes-summary-column h4 {
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.oes-summary-column ul {
+  padding-left: 1.1rem;
+  margin: 0;
+}
+
+/* Chips de categorías */
+
+.oes-chip-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+
+.oes-chip-label {
+  font-size: 0.8rem;
+  color: #6b7280;
+}
+
+.oes-chip-list {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.oes-chip {
+  font-size: 0.78rem;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: #f3f4f6;
+  color: #374151;
+  border: 1px solid #e5e7eb;
+}
+
+/* Card del iframe */
+
+.oes-frame-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.oes-frame-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.oes-fullscreen-link {
+  font-size: 0.85rem;
+  color: var(--accent-color);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.oes-fullscreen-link:hover {
+  text-decoration: underline;
+}
+
+/* Ajuste del wrapper del iframe para modo claro */
+
+.planner-frame-wrapper-light {
+  width: 100%;
+  height: calc(100vh - 180px);  /* menos resta = más alto */
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+  overflow: hidden;
+  background-color: #ffffff;
+}
+
+
+.planner-frame {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* REFUNDS MODULE */
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-size: 0.85rem;
+  margin-bottom: 4px;
+  color: var(--text-main);
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  padding: 8px 10px;
+  font-size: 0.875rem;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  outline: none;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  border-color: var(--accent-color);
+}
+
+.form-group-full {
+  grid-column: 1 / -1;
+}
+
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.refund-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+
+.refund-table th,
+.refund-table td {
+  padding: 8px 10px;
+  border-bottom: 1px solid #e5e7eb;
+  text-align: left;
+}
+
+.refund-table th {
+  background-color: #f3f4f6;
+  font-weight: 600;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 1024px) {
+  .content {
+    padding: 16px;
+  }
+
+  .page-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .planner-frame-wrapper-light {
+    height: calc(100vh - 260px);
+  }
+}
+.planner-frame-wrapper {
+  width: 100%;
+}
+
+
+@media (max-width: 768px) {
+  .app-container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .sidebar-nav {
+    flex-direction: row;
+  }
+
+  .main-area {
+    width: 100%;
+  }
+}
