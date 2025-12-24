@@ -1,25 +1,37 @@
-# Node
-**/node_modules/
-npm-debug.log*
-yarn-debug.log*
-pnpm-debug.log*
-
-# Build
-**/dist/
-**/build/
-
-# Env
-.env
-**/.env
-.env.local
-**/.env.local
-
-# Prisma / DB (SQLite)
-backend/prisma/dev.db
-backend/prisma/dev.db-journal
-
 # OS / Editor
 .DS_Store
 Thumbs.db
 .vscode/
 .idea/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Env files
+.env
+.env.*
+!.env.example
+
+# Node
+node_modules/
+
+# Builds
+dist/
+build/
+out/
+
+# Coverage
+coverage/
+
+# SQLite (no versionar DB local)
+*.db
+*.db-journal
+
+# Prisma cache (opcional)
+prisma/.cache/
+
+coverage/

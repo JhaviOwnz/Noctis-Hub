@@ -1,0 +1,183 @@
+[
+  {
+    "key": "design-objects",
+    "name": "Design Objects",
+    "rows": [
+      { "item": "Decorative entry tray", "who": "TBC", "notes": "Example item for brainstorming", "ideas": "Stone, wood, ceramic", "finalised": false },
+      { "item": "Coffee table books", "who": "TBC", "notes": "Curated selection", "ideas": "Local culture, architecture, design", "finalised": false },
+      { "item": "Decorative bowl (living area)", "who": "TBC", "notes": "Styling + function", "ideas": "Minimal sculptural", "finalised": false },
+      { "item": "Accent cushions set", "who": "TBC", "notes": "Comfort layer", "ideas": "Seasonal rotation", "finalised": false },
+      { "item": "Decorative throw blanket", "who": "TBC", "notes": "Visual + functional", "ideas": "Texture-driven", "finalised": false },
+      { "item": "Small table sculpture", "who": "TBC", "notes": "Visual interest", "ideas": "Abstract forms", "finalised": false },
+      { "item": "Minimal vase", "who": "TBC", "notes": "Optional florals", "ideas": "Stone or glass", "finalised": false },
+      { "item": "Wall art piece (feature)", "who": "TBC", "notes": "Guest-facing statement", "ideas": "Local artist option", "finalised": false },
+      { "item": "Decorative mirror", "who": "TBC", "notes": "Space enhancement", "ideas": "Functional + aesthetic", "finalised": false },
+      { "item": "Shelf styling objects", "who": "TBC", "notes": "Balance + scale", "ideas": "Odd-number grouping", "finalised": false },
+      { "item": "Candlestick holders (decor)", "who": "TBC", "notes": "Optional ambience", "ideas": "No scent, safe placement", "finalised": false },
+      { "item": "Indoor plant / greenery (low maintenance)", "who": "TBC", "notes": "Softens the space", "ideas": "Faux vs real", "finalised": false }
+    ]
+  },
+  {
+    "key": "storage-organization",
+    "name": "Storage & Organization",
+    "rows": [
+      { "item": "Key tray (entry)", "who": "TBC", "notes": "Guest convenience", "ideas": "Minimal design", "finalised": false },
+      { "item": "Umbrella stand / holder", "who": "TBC", "notes": "Weather-ready", "ideas": "Discrete placement", "finalised": false },
+      { "item": "Luggage rack or bench", "who": "TBC", "notes": "Practical comfort", "ideas": "Foldable or fixed", "finalised": false },
+      { "item": "Wardrobe hangers (premium)", "who": "TBC", "notes": "Enough quantity", "ideas": "Wood + non-slip", "finalised": false },
+      { "item": "Wardrobe shelf dividers", "who": "TBC", "notes": "Neat storage", "ideas": "Adjustable", "finalised": false },
+      { "item": "Drawer organisers", "who": "TBC", "notes": "Clutter reduction", "ideas": "Hidden solution", "finalised": false },
+      { "item": "Shoe tray / mat", "who": "TBC", "notes": "Entry cleanliness", "ideas": "Easy to clean", "finalised": false },
+      { "item": "Bathroom baskets (storage)", "who": "TBC", "notes": "Amenity organisation", "ideas": "Water resistant", "finalised": false },
+      { "item": "Laundry hamper / bag", "who": "TBC", "notes": "Guest convenience", "ideas": "Lidded or soft", "finalised": false },
+      { "item": "Spare linen storage location", "who": "TBC", "notes": "Plan access", "ideas": "Guest vs staff", "finalised": false },
+      { "item": "Kitchen drawer inserts", "who": "TBC", "notes": "Ease of use", "ideas": "Cutlery zoning", "finalised": false },
+      { "item": "Cable management (TV/desk)", "who": "TBC", "notes": "Clean look", "ideas": "Hidden channels", "finalised": false }
+    ]
+  },
+  {
+    "key": "appliances-electronics",
+    "name": "Appliance & Electronics",
+    "rows": [
+      { "item": "Television", "who": "TBC", "notes": "Main entertainment", "ideas": "Size + placement", "finalised": false },
+      { "item": "Smart TV setup (apps + casting)", "who": "TBC", "notes": "Guest usability", "ideas": "No-login friction", "finalised": false },
+      { "item": "Bluetooth speaker", "who": "TBC", "notes": "Guest audio", "ideas": "Simple pairing", "finalised": false },
+      { "item": "Bedside USB-C charging", "who": "TBC", "notes": "Expected convenience", "ideas": "Both sides of bed", "finalised": false },
+      { "item": "Wireless charging pad", "who": "TBC", "notes": "Premium convenience", "ideas": "Integrated option", "finalised": false },
+      { "item": "Hair dryer (hotel grade)", "who": "TBC", "notes": "Standard expectation", "ideas": "Quiet + powerful", "finalised": false },
+      { "item": "Clothes steamer (or iron + board)", "who": "TBC", "notes": "Wardrobe support", "ideas": "Space-saving", "finalised": false },
+      { "item": "In-room safe", "who": "TBC", "notes": "Security", "ideas": "Laptop size", "finalised": false },
+      { "item": "Lighting control / presets", "who": "TBC", "notes": "Comfort + simplicity", "ideas": "Day/Evening modes", "finalised": false },
+      { "item": "Climate control interface", "who": "TBC", "notes": "Clear controls", "ideas": "Simple labels", "finalised": false },
+      { "item": "Wi-Fi coverage (router/mesh)", "who": "TBC", "notes": "Reliable connectivity", "ideas": "Strong signal everywhere", "finalised": false },
+      { "item": "Kitchen basics appliance set", "who": "TBC", "notes": "If kitchen present", "ideas": "Toaster, microwave etc.", "finalised": false }
+    ]
+  },
+  {
+    "key": "fnb-items",
+    "name": "F&B Items",
+    "rows": [
+      { "item": "Water glasses (set)", "who": "TBC", "notes": "Daily use", "ideas": "Durable + premium feel", "finalised": false },
+      { "item": "Wine glasses (set)", "who": "TBC", "notes": "Guest expectation", "ideas": "Universal glass", "finalised": false },
+      { "item": "Champagne flutes (optional)", "who": "TBC", "notes": "Celebration-ready", "ideas": "Small qty", "finalised": false },
+      { "item": "Coffee mugs / cups", "who": "TBC", "notes": "In-room beverages", "ideas": "Consistent style", "finalised": false },
+      { "item": "Teaspoon set", "who": "TBC", "notes": "Basics", "ideas": "Stainless + simple", "finalised": false },
+      { "item": "Cutlery set (basic)", "who": "TBC", "notes": "Light dining", "ideas": "Fork/knife/spoon", "finalised": false },
+      { "item": "Plates (side + dinner)", "who": "TBC", "notes": "Simple service", "ideas": "Stackable", "finalised": false },
+      { "item": "Bowls (multi-purpose)", "who": "TBC", "notes": "Breakfast/snacks", "ideas": "Neutral tone", "finalised": false },
+      { "item": "Serving tray (room service)", "who": "TBC", "notes": "Functional", "ideas": "Non-slip surface", "finalised": false },
+      { "item": "Bottle opener / corkscrew", "who": "TBC", "notes": "Guest convenience", "ideas": "Compact tool", "finalised": false },
+      { "item": "Ice bucket + tongs (if provided)", "who": "TBC", "notes": "Optional premium touch", "ideas": "Lidded", "finalised": false },
+      { "item": "Coasters set", "who": "TBC", "notes": "Surface protection", "ideas": "Leather/stone", "finalised": false },
+      { "item": "Kitchen tea towel", "who": "TBC", "notes": "If kitchen present", "ideas": "Easy laundering", "finalised": false }
+    ]
+  },
+  {
+    "key": "linen",
+    "name": "Linen",
+    "rows": [
+      { "item": "Sheet set (fitted + flat)", "who": "TBC", "notes": "Core sleep comfort", "ideas": "Material + thread count", "finalised": false },
+      { "item": "Pillowcases (standard)", "who": "TBC", "notes": "Spares required", "ideas": "2 sets per pillow", "finalised": false },
+      { "item": "Duvet cover", "who": "TBC", "notes": "Sleep comfort", "ideas": "Easy change system", "finalised": false },
+      { "item": "Duvet inner options", "who": "TBC", "notes": "Seasonal comfort", "ideas": "Winter/summer weights", "finalised": false },
+      { "item": "Extra blanket (guest)", "who": "TBC", "notes": "Cold nights", "ideas": "Wool blend", "finalised": false },
+      { "item": "Decorative throw (bed)", "who": "TBC", "notes": "Styling layer", "ideas": "Texture not pattern", "finalised": false },
+      { "item": "Bath towels (set)", "who": "TBC", "notes": "Luxury feel", "ideas": "Weight + softness", "finalised": false },
+      { "item": "Hand towels", "who": "TBC", "notes": "Bathroom basics", "ideas": "Qty planning", "finalised": false },
+      { "item": "Face cloths / washcloths", "who": "TBC", "notes": "Guest expectation", "ideas": "Optional depending on brand", "finalised": false },
+      { "item": "Bath mat", "who": "TBC", "notes": "Safety + comfort", "ideas": "Fast drying", "finalised": false },
+      { "item": "Robes (guest)", "who": "TBC", "notes": "Premium comfort", "ideas": "Material choice", "finalised": false },
+      { "item": "Slippers (guest)", "who": "TBC", "notes": "Optional premium", "ideas": "Seasonal", "finalised": false }
+    ]
+  },
+  {
+    "key": "bathroom-amenities",
+    "name": "Bathroom Amenities",
+    "rows": [
+      { "item": "Shampoo (dispensers or bottles)", "who": "TBC", "notes": "Brand decision later", "ideas": "Refillable systems", "finalised": false },
+      { "item": "Conditioner (dispensers or bottles)", "who": "TBC", "notes": "Brand decision later", "ideas": "Refillable systems", "finalised": false },
+      { "item": "Body wash / soap", "who": "TBC", "notes": "Guest expectation", "ideas": "Bar vs liquid", "finalised": false },
+      { "item": "Hand soap", "who": "TBC", "notes": "Sink area", "ideas": "Matching brand", "finalised": false },
+      { "item": "Body lotion", "who": "TBC", "notes": "Dry climate support", "ideas": "Small bottle or pump", "finalised": false },
+      { "item": "Tissue box + cover", "who": "TBC", "notes": "Presentation detail", "ideas": "Branded sleeve", "finalised": false },
+      { "item": "Vanity tray", "who": "TBC", "notes": "Organised look", "ideas": "Stone/wood", "finalised": false },
+      { "item": "Toilet brush (discrete)", "who": "TBC", "notes": "Functional requirement", "ideas": "Hidden holder", "finalised": false },
+      { "item": "Waste bin (bathroom)", "who": "TBC", "notes": "Design-aligned", "ideas": "Lidded option", "finalised": false },
+      { "item": "Cotton pads + buds container", "who": "TBC", "notes": "Optional amenity", "ideas": "Refillable jar", "finalised": false },
+      { "item": "Shower cap", "who": "TBC", "notes": "Optional", "ideas": "If brand standard", "finalised": false },
+      { "item": "Sanitary bags", "who": "TBC", "notes": "Standard", "ideas": "Discreet placement", "finalised": false },
+      { "item": "Bath salts / soak (optional)", "who": "TBC", "notes": "Luxury touch", "ideas": "Local product", "finalised": false },
+      { "item": "Scent policy for bathroom", "who": "TBC", "notes": "Guest comfort", "ideas": "Very subtle / neutral", "finalised": false }
+    ]
+  },
+  {
+    "key": "stationery-branding",
+    "name": "Stationery & Branding",
+    "rows": [
+      { "item": "Welcome letter / card", "who": "TBC", "notes": "First impression", "ideas": "Short + warm", "finalised": false },
+      { "item": "Guest directory (printed or digital)", "who": "TBC", "notes": "Info hub", "ideas": "QR-based option", "finalised": false },
+      { "item": "Wi-Fi card", "who": "TBC", "notes": "Essential info", "ideas": "Minimal design", "finalised": false },
+      { "item": "Emergency info card", "who": "TBC", "notes": "Compliance", "ideas": "Clear icons", "finalised": false },
+      { "item": "Notepad (branded)", "who": "TBC", "notes": "Desk item", "ideas": "Premium paper", "finalised": false },
+      { "item": "Pen (branded)", "who": "TBC", "notes": "Desk item", "ideas": "Quality feel", "finalised": false },
+      { "item": "Do Not Disturb / Make Up Room signage", "who": "TBC", "notes": "Operational need", "ideas": "Elegant minimal", "finalised": false },
+      { "item": "Key card sleeve", "who": "TBC", "notes": "Brand touchpoint", "ideas": "Simple messaging", "finalised": false },
+      { "item": "Laundry bag (branded)", "who": "TBC", "notes": "Guest convenience", "ideas": "Cloth option", "finalised": false },
+      { "item": "Feedback QR card", "who": "TBC", "notes": "Guest input", "ideas": "Short prompt", "finalised": false },
+      { "item": "In-room service menu format", "who": "TBC", "notes": "If applicable", "ideas": "QR + print fallback", "finalised": false },
+      { "item": "Local guide card", "who": "TBC", "notes": "Experience support", "ideas": "Top 5 recommendations", "finalised": false }
+    ]
+  },
+  {
+    "key": "hsk-back-of-house",
+    "name": "HSK & Back of House",
+    "rows": [
+      { "item": "Amenity replenishment kit (per residence)", "who": "TBC", "notes": "Operational readiness", "ideas": "Standard par levels", "finalised": false },
+      { "item": "Spare glassware storage plan", "who": "TBC", "notes": "Breakage cover", "ideas": "Hidden cabinet", "finalised": false },
+      { "item": "Spare linen stock plan", "who": "TBC", "notes": "Turnaround support", "ideas": "On-site vs central", "finalised": false },
+      { "item": "Cleaning chemical storage (secure)", "who": "TBC", "notes": "Compliance", "ideas": "Locked location", "finalised": false },
+      { "item": "Vacuum / tools storage (hidden)", "who": "TBC", "notes": "Guest-facing aesthetics", "ideas": "Concealed closet", "finalised": false },
+      { "item": "Stain removal kit", "who": "TBC", "notes": "Quick response", "ideas": "Fabric + upholstery", "finalised": false },
+      { "item": "Glass cleaning kit", "who": "TBC", "notes": "Presentation", "ideas": "Streak-free supplies", "finalised": false },
+      { "item": "Spare batteries & small consumables", "who": "TBC", "notes": "Guest tech support", "ideas": "Remote controls etc.", "finalised": false },
+      { "item": "Lightbulb replacement stock", "who": "TBC", "notes": "Fast fixes", "ideas": "Standardize types", "finalised": false },
+      { "item": "Maintenance quick-fix kit", "who": "TBC", "notes": "Minor issues", "ideas": "Felt pads, screws", "finalised": false },
+      { "item": "Presentation checklist (arrival)", "who": "TBC", "notes": "Consistency", "ideas": "Short, high impact", "finalised": false },
+      { "item": "Lost & found holding process", "who": "TBC", "notes": "Operational", "ideas": "Secure + documented", "finalised": false }
+    ]
+  },
+  {
+    "key": "misc",
+    "name": "Misc",
+    "rows": [
+      { "item": "Umbrella (guest)", "who": "TBC", "notes": "Weather-ready", "ideas": "Branded option", "finalised": false },
+      { "item": "Torch / flashlight", "who": "TBC", "notes": "Power outage readiness", "ideas": "Discreet placement", "finalised": false },
+      { "item": "First aid kit (guest-visible guidance)", "who": "TBC", "notes": "Safety", "ideas": "Clear instructions", "finalised": false },
+      { "item": "Sewing kit (optional)", "who": "TBC", "notes": "Guest convenience", "ideas": "Small pack", "finalised": false },
+      { "item": "Shoe care kit", "who": "TBC", "notes": "Premium touch", "ideas": "Wipes + brush", "finalised": false },
+      { "item": "Yoga mat (optional)", "who": "TBC", "notes": "Wellness support", "ideas": "Storage location", "finalised": false },
+      { "item": "Hot water bottle (winter)", "who": "TBC", "notes": "Seasonal comfort", "ideas": "Safety + cover", "finalised": false },
+      { "item": "Picnic blanket (optional)", "who": "TBC", "notes": "Local experience", "ideas": "Packable", "finalised": false },
+      { "item": "Binoculars (optional)", "who": "TBC", "notes": "Scenic engagement", "ideas": "Tethered + secure", "finalised": false },
+      { "item": "Board games / cards (optional)", "who": "TBC", "notes": "Guest entertainment", "ideas": "Minimal selection", "finalised": false },
+      { "item": "Pet-friendly kit (if applicable)", "who": "TBC", "notes": "Policy dependent", "ideas": "Bowls, mat", "finalised": false }
+    ]
+  },
+  {
+    "key": "wellness-centre",
+    "name": "Wellness Centre",
+    "rows": [
+      { "item": "Spa-style towels (stock plan)", "who": "TBC", "notes": "If wellness access included", "ideas": "Separate from room linen", "finalised": false },
+      { "item": "Water station setup", "who": "TBC", "notes": "Hydration", "ideas": "Carafe + glasses", "finalised": false },
+      { "item": "Storage baskets (wellness area)", "who": "TBC", "notes": "Organisation", "ideas": "Linen baskets", "finalised": false },
+      { "item": "Robes (wellness use)", "who": "TBC", "notes": "Premium comfort", "ideas": "Size range", "finalised": false },
+      { "item": "Slippers (wellness use)", "who": "TBC", "notes": "Hygiene + comfort", "ideas": "Disposable vs reusable", "finalised": false },
+      { "item": "Scent policy (shared spaces)", "who": "TBC", "notes": "Comfort for all", "ideas": "Subtle, neutral", "finalised": false },
+      { "item": "Ambient music setup", "who": "TBC", "notes": "Atmosphere", "ideas": "Simple control", "finalised": false },
+      { "item": "Yoga props (optional)", "who": "TBC", "notes": "Wellness support", "ideas": "Blocks + straps", "finalised": false },
+      { "item": "Refreshment station accessories", "who": "TBC", "notes": "Guest care", "ideas": "Tea, fruit (if approved)", "finalised": false },
+      { "item": "Cleaning + reset kit for wellness", "who": "TBC", "notes": "Operational readiness", "ideas": "Quick turnaround", "finalised": false },
+      { "item": "Signage (quiet, simple)", "who": "TBC", "notes": "Guest guidance", "ideas": "Minimal wording", "finalised": false }
+    ]
+  }
+]

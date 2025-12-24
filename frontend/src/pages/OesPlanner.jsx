@@ -1,20 +1,25 @@
 // src/pages/OesPlanner.jsx
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
 
-const CATEGORIES = [
-  "Design Objects",
-  "Storage & Organization",
-  "Appliance & Electronics",
-  "F&B Items",
-  "Linen",
-  "Bathroom Amenities",
-  "Stationery & Branding",
-  "HSK & Back of House",
-  "Misc",
-  "Wellness Centre",
-];
 
 export default function OesPlanner() {
+    const [categories, setCategories] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetch("http://localhost:4000/api/oes/sections")
+      .then((res) => res.json())
+      .then((data) => {
+        setCategories(data || []);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.error("Failed to load OE&S categories", err);
+        setLoading(false);
+      });
+  }, []);
+
   return (
     <div className="page-container oes-page">
       {/* Header de página */}
@@ -34,29 +39,22 @@ export default function OesPlanner() {
 
       {/* Tarjeta resumen clara */}
       <section className="oes-card oes-summary-card">
-        <div className="oes-summary-top">
-          <div>
-            <h3 className="oes-heading">Meeting context</h3>
-            <p className="oes-subtitle">
-              Working document for Residences 8 &amp; 9 setup in March. Capture
-              ideas, owners and final decisions for each OE&amp;S category.
-            </p>
-          </div>
-          <div className="oes-meta">
-            <div>
-              <span className="oes-meta-label">Residences</span>
-              <span className="oes-meta-value">8 &amp; 9</span>
-            </div>
-            <div>
-              <span className="oes-meta-label">Status</span>
-              <span className="oes-meta-value">Growing document</span>
-            </div>
-            <div>
-              <span className="oes-meta-label">Focus</span>
-              <span className="oes-meta-value">Clarity over perfection</span>
-            </div>
-          </div>
-        </div>
+<h3 className="oes-heading">OE&S Brainstorming Focus</h3>
+
+<p className="oes-subtitle">
+  This session is about identifying the Operating Equipment &amp; Supplies that
+  support comfort, functionality, and a seamless guest experience.
+</p>
+
+<p>
+  Together, we will explore what is needed for Residences 8 &amp; 9, share ideas,
+  assign ownership, and begin shaping our OE&amp;S direction.
+</p>
+
+<p className="oes-note">
+  This is a working document. The objective today is alignment, not completion.
+</p>
+
 
         <div className="oes-summary-body">
           <div className="oes-summary-column">
@@ -85,11 +83,18 @@ export default function OesPlanner() {
         <div className="oes-chip-row">
           <span className="oes-chip-label">Categories</span>
           <div className="oes-chip-list">
-            {CATEGORIES.map((cat) => (
-              <span key={cat} className="oes-chip">
-                {cat}
-              </span>
-            ))}
+            {loading && <span className="oes-chip muted">Loading...</span>}
+
+{!loading && categories.length === 0 && (
+  <span className="oes-chip muted">No categories</span>
+)}
+
+{!loading &&
+  categories.map((cat) => (
+    <span key={cat.id} className="oes-chip">
+      {cat.name}
+    </span>
+  ))}
           </div>
         </div>
       </section>

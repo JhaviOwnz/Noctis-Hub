@@ -1,8 +1,9 @@
 // Configuración de la base de datos para Prisma
 datasource db {
   provider = "sqlite"
-  url      = "file:./dev.db"
+  url      = env("DATABASE_URL")
 }
+
 
 generator client {
   provider = "prisma-client-js"
