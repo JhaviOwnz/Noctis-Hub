@@ -1,15 +1,21 @@
 // Backend for Noctis Ops Hub
+import orgRoutes from "./org/org.routes.js";
+
 // Exposes APIs for OE&S planner and Refunds module.
 
-const express = require("express");
-const cors = require("cors");
-const path = require("path");
-const fs = require("fs");
-const multer = require("multer");
-const { PrismaClient } = require("@prisma/client");
 
 
+import  express from "express";
+import cors from "cors";
+import path from "path";
+import fs from "fs";
+import multer from "multer";
+import { fileURLToPath } from "url";
+import { PrismaClient } from "@prisma/client";
 
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 const app = express();
 const prisma = new PrismaClient();
 
@@ -19,6 +25,8 @@ app.use(express.json());
 
 // Servir archivos estáticos (html/css/js) desde /public
 app.use(express.static(path.join(__dirname, "..", "public")));
+
+app.use("/api/org", orgRoutes);
 
 // Asegurarse de que existe la carpeta de uploads
 const uploadsRoot = path.join(__dirname, "..", "uploads", "refunds");

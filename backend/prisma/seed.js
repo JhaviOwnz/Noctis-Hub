@@ -1,5 +1,5 @@
 // backend/prisma/seed.js
-const { PrismaClient } = require("@prisma/client");
+import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
@@ -16,22 +16,17 @@ async function main() {
       slug: "oes-planner",
       description: "Operating Equipment & Supplies categories and items for Noctis.",
     },
-    // Si tenés más módulos en tu sitio, agregalos acá.
   ];
 
   for (const m of modules) {
     await prisma.module.upsert({
       where: { slug: m.slug },
-      update: {
-        name: m.name,
-        description: m.description,
-      },
+      update: { name: m.name, description: m.description },
       create: m,
     });
   }
 
   // 2) OE&S Categories (idempotente por key)
-  // Esto es opcional pero recomendado para que el módulo tenga base.
   const oesCategories = [
     { key: "design-objects", name: "Design Objects", description: "Decor and design-related objects.", order: 10 },
     { key: "linen", name: "Linen", description: "Bed linen, towels, and related.", order: 20 },
@@ -42,17 +37,41 @@ async function main() {
   for (const c of oesCategories) {
     await prisma.oesCategory.upsert({
       where: { key: c.key },
-      update: {
-        name: c.name,
-        description: c.description,
-        order: c.order,
-      },
+      update: { name: c.name, description: c.description, order: c.order },
       create: c,
     });
   }
 
-  // 3) (Opcional) No seed de OesItem por ahora
-  // Mejor mantener items como data real del proyecto, no demo.
+  // 3) Role Types (idempotente por key)
+  const roleTypes = [
+    { key: "HSK_MANAGER", label: "HSK Manager", sortLevel: 0, colorKey: "navy" },
+    { key: "SUPERVISOR", label: "Supervisor", sortLevel: 1, colorKey: "teal" },
+    { key: "TEAM_LEADER", label: "Team Leader", sortLevel: 2, colorKey: "purple" },
+    { key: "SENIOR_HSK", label: "Senior HSK", sortLevel: 3, colorKey: "indigo" },
+    { key: "ROOM_ATTENDANT", label: "Room Attendant", sortLevel: 4, colorKey: "coral" },
+    { key: "NOTE", label: "Note", sortLevel: 99, colorKey: "grey" },
+  ];
+
+  for (const r of roleTypes) {
+    await prisma.roleType.upsert({
+      where: { key: r.key },
+      update: { label: r.label, sortLevel: r.sortLevel, colorKey: r.colorKey },
+      create: r,
+    });
+  }
+
+  // 4) Snapshots (CURRENT + FUTURE)
+  await prisma.orgSnapshot.upsert({
+    where: { type: "CURRENT" },
+    update: { name: "Current Housekeeping Structure", isActive: true },
+    create: { name: "Current Housekeeping Structure", type: "CURRENT", isActive: true },
+  });
+
+  await prisma.orgSnapshot.upsert({
+    where: { type: "FUTURE" },
+    update: { name: "Future Proposal Structure", isActive: false },
+    create: { name: "Future Proposal Structure", type: "FUTURE", isActive: false },
+  });
 
   console.log("✅ Seed completed successfully.");
 }

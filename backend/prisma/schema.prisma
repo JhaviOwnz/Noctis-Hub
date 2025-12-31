@@ -78,3 +78,75 @@ model OesItem {
   createdAt   DateTime   @default(now())
   updatedAt   DateTime   @updatedAt
 }
+model Employee {
+  id            Int      @id @default(autoincrement())
+  firstName     String
+  lastName      String
+  preferredName String?
+  status        String   @default("ACTIVE") // ACTIVE, LEFT, ON_LEAVE, etc.
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  slots         StructureSlot[]
+}
+
+model RoleType {
+  id          Int      @id @default(autoincrement())
+  key         String   @unique        // "SUPERVISOR", "ROOM_ATTENDANT", etc.
+  label       String
+  sortLevel   Int      @default(0)
+  colorKey    String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  slots       StructureSlot[]
+}
+
+model OrgSnapshot {
+  id          Int      @id @default(autoincrement())
+  name        String
+
+  // En vez de enum:
+  // "CURRENT" | "FUTURE"
+  type        String   @unique
+
+  isActive    Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  slots       StructureSlot[]
+}
+
+model StructureSlot {
+  id              Int         @id @default(autoincrement())
+  snapshotId      Int
+  snapshot        OrgSnapshot @relation(fields: [snapshotId], references: [id], onDelete: Cascade)
+
+  roleTypeId      Int
+  roleType        RoleType    @relation(fields: [roleTypeId], references: [id], onDelete: Restrict)
+
+  // En vez de enum:
+  // "ROLE" | "VACANCY" | "NOTE"
+  slotType        String      @default("ROLE")
+
+  displayName     String?
+
+  employeeId      Int?
+  employee        Employee?   @relation(fields: [employeeId], references: [id], onDelete: SetNull)
+
+  reportsToSlotId Int?
+  reportsToSlot   StructureSlot? @relation("SlotReporting", fields: [reportsToSlotId], references: [id], onDelete: SetNull)
+  directReports   StructureSlot[] @relation("SlotReporting")
+
+  orderIndex      Int         @default(0)
+  posX            Float?
+  posY            Float?
+
+  createdAt       DateTime    @default(now())
+  updatedAt       DateTime    @updatedAt
+
+  @@index([snapshotId])
+  @@index([roleTypeId])
+  @@index([employeeId])
+  @@index([reportsToSlotId])
+}

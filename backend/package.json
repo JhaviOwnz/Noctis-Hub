@@ -1,4 +1,6 @@
+
 {
+  "type": "module",
   "name": "noctis-ops-hub-backend",
   "version": "1.0.0",
   "description": "Servidor backend para la plataforma Noctis Ops Hub",
